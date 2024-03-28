@@ -12,9 +12,9 @@ app.listen(port,() =>{
 });
 
 app.use(express.json());
-// mongoose.connect('mongodb://localhost:27017/todos-db');
-const dbConnect = process.env.dbConStr;
-mongoose.connect(dbConnect);
+mongoose.connect('mongodb://localhost:27017/todos-db');
+// const dbConnect = process.env.dbConStr;
+// mongoose.connect(dbConnect);
 console.log('db Connected');
 
 app.use(homeRoutes);

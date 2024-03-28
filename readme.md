@@ -5,3 +5,9 @@
 - http://localhost:3000/todos/page/1/size/10?status=pending
 - http://localhost:3000/todos/page/1/size/10?status=in-progress
 - http://localhost:3000/todos/page/1/size/10?status=completed
+
+### Tasks done!
+- CRUD Operations
+- Validation
+- Pagination and search by field (status)
+- Deployment

@@ -18,9 +18,9 @@ const getCount = (status) => {
 };
 
 const get = (options) => {
-    const {currentPage,size,status} = options;
+    const {page,size,status} = options;
     
-    let pageToSkip = (currentPage-1) * size;
+    let pageToSkip = (page - 1) * size;
     const filter = getFilterExp(status);
 
     return Product

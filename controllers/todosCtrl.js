@@ -20,22 +20,27 @@ const post = async(req,res) => {
 const get = async(req,res) => {
     try{
         const options = {
-            page : req.params.page || 1,
+            currentPage : req.params.page || 1,
             size : req.params.size || 10,
             status : req.query.status,
         }
 
         const rows = await todosRepo.getCount(options.status);
-        const totalPages = Math.ceil(rows / options.size);
+        const pages = Math.ceil(rows / options.size);
 
 
         const data = await todosRepo.get(options);
-        const result = {
-            data,
+
+        const metadata = {
             rows,
-            totalPages,
+            pages,
         }
 
+        const result = {
+            data,
+            metadata,
+        }
+        // console.log(options.status)
         res.status(200).json(result);
     }catch(err){
         console.error(err);
@@ -73,6 +78,7 @@ const put = async(req,res) => {
     try{
         if(!payload.status || !payload.title || !payload.description){
             res.status(400).send('Bad Request');
+            console.log('Enter all fields');
             return;
         }
         await todosRepo.put(id,payload);

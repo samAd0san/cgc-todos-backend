@@ -17,7 +17,7 @@ app.use(cors());
 
 app.use(express.json());
 // mongoose.connect('mongodb://localhost:27017/todos-db');
-const dbConnect = process.env.dbConStr || 'mongodb+srv://admin:admin@samadscluster.a4s9jvf.mongodb.net/';
+const dbConnect = process.env.dbConStr || 'mongodb+srv://admin:admin@samadscluster.a4s9jvf.mongodb.net/cgc-remote-db';
 mongoose.connect(dbConnect);
 console.log('db Connected');
 
